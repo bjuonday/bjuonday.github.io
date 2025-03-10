@@ -1,92 +1,21 @@
 body {
-    background-color: rgb(23, 32, 24);
-    color: white;
-    cursor: default;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-    display: flex;
-    overflow: hidden;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    image-rendering: -moz-crisp-edges;
-    -webkit-image-rendering: crisp-edges;
-}
-
-a {
-    text-decoration: underline;
-    color: white;
-}
-a:hover {
-    font-style: italic;
-}
-.hidden {
-    display: none !important;
-}
-#popupdespise {
-    background-color: rgba(255,255,255, 0.85);
-    box-shadow: 0 0 10px rgba(255,255,255, 0.85);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    background: white;
     color: black;
-    position: relative;
-    top: -10px;
-    padding: 2px;
 }
-.link {
-    color: white;
-    background: none;
-    border: 0;
-    text-decoration: underline;
+li {
+    margin-top: 0;
+    margin-left: 15px;
+    margin-bottom: -10px;
 }
-.link:hover {
-    cursor: pointer;
+body.dark hr {
+    border: 1px solid #3d4753;
 }
-#greeting {
-    top: -10px;
-    position: relative;
+body.dark a:visited {
+    color: rgb(8, 74, 141);
 }
-.info, button {
-    text-transform: lowercase;
-}
-.info {
-    opacity: 1;
-    position: relative;
-    background-color: rgba(8, 8, 10, 0.5);
-    box-shadow: 0 0 15px rgba(8, 8, 10, 0.5);
-    padding: 10px 45px;
-    border-radius: 10px;
-    margin: 0;
-    animation: fade-in_info 2s cubic-bezier(.65,.05,.36,1);
-    width: 450px;
-    height: auto;
-}
-@keyframes fade-in_info {
-    0% {
-        margin: 0 15px;
-        opacity: 0;
-    }
-    100% {
-        margin: 0 0;
-        opacity: 1;
-    }
-}
-.logo, .logo img {
-    opacity: 1;
-    width: 25em;
-    margin: -25px 0;
-    position: relative;
-}
-@keyframes fade-in_logo {
-    0% {
-        margin: -5px 0;
-        opacity: 0;
-    }
-    100% {
-        margin: -25px 0;
-        opacity: 1;
-    }
-}
-@media only screen and ( max-width: 655px ) {
-    .info {
-        position: absolute;
-    }
+body.dark {
+    background: #212830;
+    color: #d1d7e0;
 }
