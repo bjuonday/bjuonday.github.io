@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+* { transition: 0.35s; }
+:root {
+    --yellow: rgb(138, 138, 0);
+    --cyan: rgb(0, 167, 167);
+}
+body.dark {
+    --yellow: yellow;
+    --cyan: cyan;
+}
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    background: white;
-    color: black;
+    font-family: Geist, sans-serif;
+    font-size: 1.25em;
+    background: url('/img/bg.png') white;
+    background-position: fixed;
+    background-size: cover;
+    color: #222;
 }
 li {
     margin-top: 0;
@@ -12,10 +24,90 @@ li {
 body.dark hr {
     border: 1px solid #3d4753;
 }
-body.dark a:visited {
-    color: rgb(8, 74, 141);
+body a {
+    text-decoration: none;
+    color: blue !important; 
+  position: relative;
+  display: inline-block;
+}
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: blue;
+  bottom: -1px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease-out;
+}
+body.dark a::after {
+    background: rgb(142, 180, 218);
+}
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+body.dark a {
+    color: rgb(142, 180, 218) !important;
 }
 body.dark {
-    background: #212830;
+    background: url('/img/bg_dark.png') #212830;
+    background-position: fixed;
+    background-size: cover;
     color: #d1d7e0;
+}
+.buttons {
+    float: right;
+    margin-right: 10px;
+}
+.buttons button { margin-right: 6px; }
+.buttons button:last-child { margin-right: 0; }
+button {
+    background: transparent;
+    color: black;
+    font-family: Nunito;
+    font-size: 0.85em;
+    border-radius: 30px;
+    border: 1px solid black;
+    padding: 6px 24px;
+}
+button:hover, button.secondary:active { background: #ddd; cursor: pointer !important; }
+button:active, button.secondary:hover { background: #999; }
+button.secondary {
+    background: black;
+    color: white;
+}
+
+body.dark button {
+    color: #d1d7e0;
+    border-color: #d1d7e0;
+}
+body.dark button:hover, body.dark button.secondary:active { background: #37404b7e; }
+body.dark button:active, body.dark button.secondary:hover { background: #95a2b3; }
+body.dark button.secondary {
+    background: #d1d7e0;
+    color: #212830;
+}
+
+/* ability to disable buttons */
+body.light #brightness_light, body.dark #brightness_dark {
+    pointer-events: none;
+}
+.re { display: none; }
+
+/* more */
+@media screen and (max-width: 400px) {
+    .buttons {
+        float: left;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .re { display: block; }
+    body {
+        font-size: 1.05em;
+        text-align: center;
+    }
 }

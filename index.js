@@ -15,28 +15,43 @@ updateTitle();
 const hour = new Date().getHours();
 const timecycle = document.getElementById("greeting");
 if (hour > 12) {
-  timecycle.textContent = "Good morning!";
-  timecycle.style = "color: cyan;";
+  timecycle.innerHTML = "Good morning! <i class='fa-solid fa-sunrise'></i>";
+  timecycle.style = "color: var(--cyan);";
 } else {
-  timecycle.textContent = "Good day!";
-  timecycle.style = "color: yellow;";
+  timecycle.innerHTML = "Good day! <i class='fa-solid fa-sun'></i>";
+  timecycle.style = "color: var(--yellow);";
 }
 if (hour < 17) {
-  timecycle.textContent = "Good day!";
-  timecycle.style = "color: yellow;";
+  timecycle.innerHTML = "Good day! <i class='fa-solid fa-sun'></i>";
+  timecycle.style = "color: var(--yellow);";
 } else {
-  timecycle.textContent = "Good evening!";
+  timecycle.innerHTML = "Good evening! <i class='fa-solid fa-sunset'></i>";
   timecycle.style = "color: orange;";
   document.body.classList.add("dark");
 }
 if (hour > 20) {
-  timecycle.innerHTML = "Good night! <i class='fa fa-moon-o' aria-hidden='true'></i>";
+  timecycle.innerHTML = "Good night! <i class='fa-solid fa-moon' aria-hidden='true'></i>";
   timecycle.style = "color: #788;";
   document.body.classList.add("dark");
 }
-const whydespise = document.getElementById("howdespise");
-const popup = document.getElementById("popupdespise");
-whydespise.addEventListener("click", whendespise());
-function whendespise() {
-  popup.classList.toggle('hidden');
+
+document.getElementById("brightness_light").addEventListener("click", function() {
+  localStorage.setItem("brightness", "light");
+  document.body.classList.add("light");
+  document.body.classList.remove("dark");
+});
+const brightness = localStorage.getItem("brightness");
+
+  if(brightness == "light") {
+  document.body.classList.add("light");
+  document.body.classList.remove("dark");
 }
+  if(brightness == "dark") {
+  document.body.classList.add("dark");
+  document.body.classList.remove("light");
+}
+document.getElementById("brightness_dark").addEventListener("click", function() {
+  localStorage.setItem("brightness", "dark");
+  document.body.classList.add("dark");
+  document.body.classList.remove("light");
+});
